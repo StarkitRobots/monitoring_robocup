@@ -16,8 +16,8 @@
   <build_depend>starkit_utils</build_depend> <!-- starkit/utils -->
   <build_depend>starkit_geometry</build_depend> <!-- starkit/geometry -->
   <build_depend>starkit_team_play</build_depend> <!-- starkit/teamplay -->
-  <build_depend>robocup_referee</build_depend> <!-- starkit/robocupreferee -->
-  <build_depend>sfml</build_depend> <!-- starkitdeps/sfml -->
+  <build_depend>robocup_referee</build_depend> <!-- rhoban/robocupreferee -->
+  <build_depend>sfml</build_depend> <!-- rhobandeps/sfml -->
 
   <run_depend>starkit_utils</run_depend>
   <run_depend>starkit_geometry</run_depend>
