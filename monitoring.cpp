@@ -9,12 +9,12 @@
 #include <mutex>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-#include <rhoban_geometry/point.h>
+#include <starkit_geometry/point.h>
 #include <robocup_referee/constants.h>
-#include <rhoban_utils/sockets/udp_broadcast.h>
-#include <rhoban_utils/timing/time_stamp.h>
-#include <rhoban_utils/util.h>
-#include <rhoban_team_play/team_play.h>
+#include <starkit_utils/sockets/udp_broadcast.h>
+#include <starkit_utils/timing/time_stamp.h>
+#include <starkit_utils/util.h>
+#include <starkit_team_play/team_play.h>
 #include <robocup_referee/referee_client.h>
 
 #include "RichText.hpp"
@@ -22,12 +22,12 @@
 
 #ifdef USE_CAMERA
 #include <opencv2/opencv.hpp>
-
+#include <opencv/highgui.h>
 using namespace cv;
 #endif
 
-using namespace rhoban_utils;
-using namespace rhoban_team_play;
+using namespace starkit_utils;
+using namespace starkit_team_play;
 static bool stopped = false;
 std::string refereeIp = "";
 bool badRefereeIp = false;
@@ -272,12 +272,12 @@ void drawPlayer(sf::RenderWindow& window, const sf::Vector2f& pos, double yaw, i
   window.draw(shape3);
 }
 
-void drawDashedLine(sf::RenderWindow& window, rhoban_geometry::Point pt1, rhoban_geometry::Point pt2, int id)
+void drawDashedLine(sf::RenderWindow& window, starkit_geometry::Point pt1, starkit_geometry::Point pt2, int id)
 {
   double delta = 0.1;
   while ((pt2 - pt1).getLength() > delta)
   {
-    rhoban_geometry::Point target = pt1 + (pt2 - pt1).normalize(delta / 2);
+    starkit_geometry::Point target = pt1 + (pt2 - pt1).normalize(delta / 2);
     drawAnyLine(window, sf::Vector2f(pt1.x, pt1.y), sf::Vector2f(target.x, target.y), id);
     pt1 = pt1 + (pt2 - pt1).normalize(delta);
   }
@@ -303,9 +303,9 @@ void drawTarget(sf::RenderWindow& window, const sf::Vector2f& pos, const sf::Vec
   double sizeX = 0.1;
   double sizeY = 0.02;
 
-  rhoban_geometry::Point pt(pos.x, pos.y);
-  rhoban_geometry::Point pt2(localTarget.x, localTarget.y);
-  rhoban_geometry::Point pt3(target.x, target.y);
+  starkit_geometry::Point pt(pos.x, pos.y);
+  starkit_geometry::Point pt2(localTarget.x, localTarget.y);
+  starkit_geometry::Point pt3(target.x, target.y);
 
   drawDashedLine(window, pt, pt2, id);
   globalAlpha = 100;
@@ -456,9 +456,9 @@ void showThread()
 int main(int argc, char** argv)
 {
   // Loading font
-  std::string binary_path = rhoban_utils::getDirName(argv[0]);
+  std::string binary_path = starkit_utils::getDirName(argv[0]);
   std::string font_path = binary_path + "font.ttf";
-  std::string img_path = binary_path + "RhobanFootballClub.png";
+  std::string img_path = binary_path + "starkitFootballClub.png";
   std::cout << "Loading from : " << binary_path << std::endl;
 
   // UDP port

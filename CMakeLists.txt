@@ -3,12 +3,12 @@ project(monitoring_robocup)
 
 find_package(
     catkin REQUIRED COMPONENTS
-    rhoban_utils rhoban_geometry robocup_referee rhoban_team_play sfml
+    starkit_utils starkit_geometry robocup_referee starkit_team_play sfml
 )
 
 catkin_package(
     INCLUDE_DIRS .
-    CATKIN_DEPENDS rhoban_utils rhoban_geometry robocup_referee rhoban_team_play sfml
+    CATKIN_DEPENDS starkit_utils starkit_geometry robocup_referee starkit_team_play sfml
 )
 
 #Camera options
