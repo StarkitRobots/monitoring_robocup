@@ -21,7 +21,7 @@
 
   <run_depend>starkit_utils</run_depend>
   <run_depend>starkit_geometry</run_depend>
-  <run_depend>starkit_referee</run_depend>
+  <run_depend>robocup_referee</run_depend>
   <run_depend>starkit_team_play</run_depend>
   <run_depend>sfml</run_depend>
 
